@@ -1,4 +1,9 @@
-## Installation and Getting Started
+# PAPER TITLE TBD
+### AUTHORS LIST TBD
+
+
+# Getting Started
+## Installation
 1. Request raw data from authors and place in `./data/raw_data/t12-updated/`
 2. Install project with one of the two following methods:
     1. Using `conda`, install environemnt with `conda env create --file environment.yml`, or 
@@ -14,3 +19,28 @@
 
 ## Existing model checkpoints
 You can review our trained models by unpickling the files found in `./data/trained_models`. Note that these are pickled `LOOCV_Wrapper` instances. See `./procan_connectome/model_training/loocv_wrapper.py` for more details on this classes attributes and member functions. 
+
+# Plots
+
+## EDA
+| ![Label Counts](./plots/label-counts.svg) |
+| :--: |
+| *Participant count vs. clinical label* |
+
+| ![Raw Top 10 Features](./plots/raw-feature-histograms.svg) |
+| :--: |
+| *Top 10 raw feature histograms* |
+
+## Data Preprocessing
+| ![Transformed Top 10 Features](./plots/transformed-feature-histograms.svg) |
+| :--: |
+| *Top 10 features histograms after transforms* |
+
+## Results summary
+|![Confusion Matrix](./plots/cm.svg) |
+| :--: |
+| *Confusion Matrix* |
+
+| ![Top 10 features](./plots/top-10-features.svg) |
+| :--: | 
+| *Top 10 features by mean decrease in gini impurity* |
