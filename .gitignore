@@ -7,9 +7,11 @@ __pycache__
 data/wandb/**
 outputs/**
 wandb/**
-**.csv
+# **.csv
 **.png
-
+**.sav
+processed_results.csv
+project_raw_data.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

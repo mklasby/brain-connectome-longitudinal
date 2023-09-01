@@ -132,7 +132,7 @@ def plot_feature_importance(
     else:
         x = df[importance_col].iloc[:n_features]
         y = df[feature_col].iloc[:n_features]
-    ax = sns.barplot(x=x, y=y, color="black")
+    ax = sns.barplot(x=x, y=y, color="darkturquoise")
     fig.add_subplot(ax)
     plt.title(plot_title)
     plt.xlabel("Importance")

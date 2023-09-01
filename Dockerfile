@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:jammy-20230804
 
 ARG USERNAME=user
 ARG WORKSPACE_DIR=/home/user/procan_connectome
@@ -28,10 +28,12 @@ USER ${USERNAME}
 ENV WORKSPACE_DIR=${WORKSPACE_DIR} \
     PATH="/home/${USERNAME}/.local/bin:${PATH}" \
     NVIDIA_DRIVER_CAPABILITIES="all"
-    
+
+# Install rust as we need it for rpds-py
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 WORKDIR /home/${USERNAME}
-COPY ./requirements.txt ./  
-RUN yes | pip install --upgrade pip &&  yes | pip install -r requirements.txt
+COPY ./requirements.txt ./
+RUN pip install --upgrade pip &&  yes | pip install -r requirements.txt
 RUN echo "alias python=python3" >> ~/.bashrc && \
     echo "alias pip=pip3" >> ~/.bashrc

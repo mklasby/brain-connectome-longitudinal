@@ -4,6 +4,7 @@ channels:
   - defaults
 dependencies:
   - python=3.10
+  - pip=23.0.1
   - matplotlib=3.7.1
   - numpy=1.24.2
   - pandas=1.5.3
@@ -23,4 +24,4 @@ dependencies:
   - pip:
       - -e .
       - git+https://github.com/mklasby/ingeniator.git
-      - interpret=0.3.2
+      - interpret==0.3.2

@@ -30,5 +30,5 @@
 		"--env-file",
 		".env"
 	],
-	"postStartCommand": "/bin/bash && git config --global --add safe.directory ${containerEnv:WORKSPACE_DIR} && pip3 install git+https://github.com/mklasby/ingeniator.git && pip3 install -e."
+	"postStartCommand": "git config --global --add safe.directory ${containerEnv:WORKSPACE_DIR} && pip install -e."
 }
