@@ -1,0 +1,48 @@
+SMOKE_TEST: False
+
+wandb:
+  name:
+    "${model}_${dataset}_gs${loocv.perform_grid_search}_ss${pipeline.standard_scale}\
+    _rfecv${pipeline.rfecv}_balanced${loocv.balance_classes}_seed${random_state}"
+  entity: mklasby
+  project: procan
+  start_method: thread
+  dir: ${paths.data}/wandb
+
+# Select from xgb, rf, svc
+model: rf
+# Select from cross_sectional, delta, longitudinal
+dataset: longitudinal
+n_jobs: -1
+random_state: 42
+# Drop na data, may only be False for xgb model
+drop_na: True
+# Use global + modular interaction data only!
+global_only: False
+
+loocv:
+  perform_grid_search: True
+  scoring: "f1_macro"
+  balance_classes: True
+  n_samples: null
+  single_label_upsample: null
+  cv: 5
+  save_feature_importance: True
+  smoke_test: ${SMOKE_TEST}
+
+pipeline:
+  standard_scale: True
+  power_transform: True
+  rfecv: True
+  ignore_features:
+    - null
+
+paths:
+  root: ${oc.env:BASE_PATH}
+  data: ${paths.root}/data
+  t12_data: ${paths.data}/t12-updated
+  plot: ${paths.root}/plots
+  logs: ${paths.data}/logs
+
+labels_dict:
+  { 0: "HC", 1: "Stage_0", 2: "Stage_1a", 3: "Stage_1b", 4: "Transition" }
